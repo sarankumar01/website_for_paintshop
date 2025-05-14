@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Payment - Cash on Delivery</title>
+  <link rel="stylesheet" href="/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <style>
+    .payment-container {
+      max-width: 600px;
+      margin: 30px auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      background-color: #f9f9f9;
+    }
+    .payment-header {
+      text-align: center;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    .payment-option {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+    .payment-button {
+      width: 100%;
+      padding: 15px;
+      font-size: 18px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    .payment-button:hover {
+      background-color: #45a049;
+    }
+    .payment-summary {
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #f9f9f9;
+      border-radius: 8px;
+    }
+    .total-amount {
+      font-size: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="payment-container">
+    <div class="payment-header">
+      <h2>Choose Payment Method</h2>
+    </div>
+
+   <!-- Cash on Delivery Option -->
+   <div class="payment-option" id="cod-option">
+    <h3>Cash on Delivery</h3>
+    <p>Pay in cash when your order arrives.</p>
+  </div>
+
+  <!-- Payment Summary -->
+  <div class="payment-summary">
+    <h4>Order Summary</h4>
+    <p>Total Amount: ₹<span id="totalAmount">1200</span></p>
+  </div>
+
+  <!-- Place Order Button -->
+  <div style="text-align: center; margin-top: 20px;">
+    <button onclick="confirmOrder()">Confirm Order</button>
+  </div>
+</div>
+
+<script>
+  // Function to confirm the order when COD is selected
+  function confirmOrder() {
+    // Get the total amount and customer details (stored in localStorage)
+    const totalAmount = localStorage.getItem('totalAmount') || '1200'; // Default value if not found
+    const customerName = localStorage.getItem('customerName');
+    const customerAddress = localStorage.getItem('customerAddress');
+
+    if (!customerName || !customerAddress) {
+      alert("Please provide your address and name before proceeding.");
+      return;
+    }
+
+    // Example of order confirmation - you can extend this with a backend API
+    alert(`Your order of ₹${totalAmount} will be delivered to ${customerAddress} (Cash on Delivery).`);
+
+    // Optionally, redirect to order confirmation page
+    window.location.href = 'order-confirmation-page.html';
+  }
+  </script>
+</body>
+</html>

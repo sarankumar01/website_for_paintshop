@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Interior Paints - Bala Paints</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    header {
+      background-color: #2c3e50;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 10px;
+      font-size: 2.5em;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 10px 0 0;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav ul li a:hover {
+      text-decoration: underline;
+    }
+
+    .filter-section {
+      margin: 20px auto;
+      text-align: center;
+      max-width: 200px;
+    }
+
+    .filter-section select {
+      padding: 8px;
+      font-size: 16px;
+      border-radius: 4px;
+    }
+
+    .product-section {
+      max-width: 1200px;
+      margin: 30px auto;
+      padding: 20px;
+      background-color: white;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .product-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .product {
+      background-color: #fff;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s;
+    }
+
+    .product:hover {
+      transform: translateY(-10px);
+    }
+
+    .product img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+
+    .product h3 {
+      margin: 5px 0;
+      font-size: 1.5em;
+    }
+
+    .product .short-desc {
+      font-size: 1em;
+      color: #777;
+      margin-bottom: 10px;
+    }
+
+    .color-select,
+    .quantity-selection {
+      width: 100%;
+      padding: 8px;
+      margin: 6px 0;
+      font-size: 1em;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .product button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: #2c3e50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .product button:hover {
+      background-color: #34495e;
+    }
+
+    footer {
+      background-color: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Interior Paints Collection</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="exterior.html">Exterior Paints</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="filter-section">
+    <label for="brandFilter">Filter by Brand:</label>
+    <select id="brandFilter" onchange="filterByBrand(this.value)">
+      <option value="All">All Brands</option>
+      <option value="Asian Paints">Asian Paints</option>
+      <option value="Birla opus">Birla opus</option>
+      <option value="Nippon Paints">Nippon Paints</option>
+      <option value="Berger Paints">Berger Paints</option>
+    </select>
+  </div>
+
+  <section class="product-section">
+    <h2>Our Best Interior Paints</h2>
+    <div class="product-list">
+
+      <div class="product" data-brand="Asian Paints">
+        <img src="images/image 1.png" alt="Royal Premium Wall Paint"
+          onclick="openProductPage('Royal Premium Wall Paint', 'Ultra sheen paint that steals your spotlight. Perfect for interior walls with smooth finish. Water-resistant and available in rich colors.', 799, 'images/image 1.png')">
+        <h3>Royal Premium Wall Paint</h3>
+        <p class="short-desc">Smooth finish for modern homes.</p>
+        <select id="paintColor1" class="color-select">
+          <option value="Red">🔴 Red</option>
+          <option value="Blue">🔵 Blue</option>
+          <option value="Green">🟢 Green</option>
+          <option value="Yellow">🟡 Yellow</option>
+          <option value="White">⚪ White</option>
+          <option value="Black">⚫ Black</option>
+        </select>
+        <select id="paintSize1" class="quantity-selection">
+          <option value="250ml">250ml</option>
+          <option value="500ml">500ml</option>
+          <option value="1L">1 Liter</option>
+          <option value="2L">2 Liters</option>
+          <option value="5L">5 Liters</option>
+          <option value="10L">10 Liters</option>
+        </select>
+        <button onclick="addToCart('Royal Premium Wall Paint', 'paintColor1', 'paintSize1', 799)">Add to Cart</button>
+      </div>
+
+      <div class="product" data-brand="Birla opus">
+        <img src="images/birla-opus-one-timeless-clay.jpeg.png" alt="One Timeless Clay"
+          onclick="openProductPage('One Timeless Clay','One Timeless Clay consists of Lime and Natural clay, applied with a trowel in multiple layers, which is top-coated to provide the desired finish. It is an eco-friendly product with Low VOC, high Natural Content and VAM based.', 505, 'images/birla-opus-one-timeless-clay.jpeg.png')">
+        <h3>One Timeless Clay</h3>
+        <p class="short-desc">Eco-friendly timeless clay blend.</p>
+        <select id="paintColor3" class="color-select">
+          <option value="Red">🔴 Red</option>
+          <option value="Blue">🔵 Blue</option>
+          <option value="Green">🟢 Green</option>
+          <option value="Yellow">🟡 Yellow</option>
+          <option value="White">⚪ White</option>
+          <option value="Black">⚫ Black</option>
+        </select>
+        <select id="paintSize3" class="quantity-selection">
+          <option value="250ml">250ml</option>
+          <option value="500ml">500ml</option>
+          <option value="1L">1 Liter</option>
+          <option value="2L">2 Liters</option>
+          <option value="5L">5 Liters</option>
+          <option value="10L">10 Liters</option>
+        </select>
+        <button onclick="addToCart('One Timeless Clay','paintColor3','paintSize3', 505)">Add to Cart</button>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Bala Paint World. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function openProductPage(name, description, price, imageUrl) {
+      const product = { name, description, price, imageUrl };
+      localStorage.setItem("selectedProduct", JSON.stringify(product));
+      window.location.href = "product.html";
+    }
+
+    function addToCart(name, colorId, sizeId, basePrice = 500) {
+      const color = document.getElementById(colorId).value;
+      const size = document.getElementById(sizeId).value;
+      const liters = { "250ml": 0.25, "500ml": 0.5, "1L": 1, "2L": 2, "5L": 5, "10L": 10 }[size] || 1;
+      const price = Math.round(basePrice * liters);
+      const cart = JSON.parse(localStorage.getItem("cart")) || [];
+      cart.push({ name, color, quantity: size, price });
+      localStorage.setItem("cart", JSON.stringify(cart));
+      alert(`${name} added to cart!`);
+    }
+
+    function filterByBrand(brand) {
+      const products = document.querySelectorAll(".product");
+      products.forEach(p => {
+        p.style.display = (brand === "All" || p.dataset.brand === brand) ? "block" : "none";
+      });
+    }
+
+    window.onload = () => filterByBrand("All");
+  </script>
+</body>
+</html>

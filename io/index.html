@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bala Paints - Premium Paint Solutions</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="/cart.js"></script>
+
+</head>
+<body>
+    <header>
+        <h1>Welcome To Sri Vignesh Traders Digital Storefront</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section id="home" class="banner">
+        <h2>Your One-Stop Paint Solution</h2>
+        <p>High-quality paints for every surface.</p>
+        <button class="explore-button" onclick="showProducts()">Explore Now</button>
+    </section>
+    
+    <section class="redirect-section">
+        <h2 class="section-heading">Choose Your Paint Type</h2>
+        <div class="redirect-container">
+            <div class="redirect-box">
+                <img src="images/interior1 (1).png"  alt="Interior Paint">
+                <br>
+                <button class="redirect-button" onclick="location.href='interior.html'">Interior Paints</button>
+            </div>
+            <div class="redirect-box">
+                <img src="images/exterior 11.png  " alt="Exterior Paint">
+                <br>
+                <button class="redirect-button" onclick="location.href='exterior.html'">Exterior Paints</button>
+            </div>
+        </div>
+    </section>
+    
+    <section id="products" class="product-section">
+        <h2 class="section-heading">Featured Products</h2>
+        <div class="product-list">
+            <div class="product">
+                <img src="images/image 1.png" alt="Paint 1">
+                <h3>Royal Premium Wall Paint</h3>
+                <p>Ultra sheen paint that steals your spotlight.</p>
+                <label for="paintColor">Choose Your Paint Color:</label>
+                <input type="color" id="paintColor" value="#a38fd6" onchange="changePaintColor(this.value)">
+                <div>
+                    <label for="paintSize1">Select Quantity:</label>
+                    
+        <select id="paintSize1">
+            <option value="250ml">250ml</option>
+            <option value="500ml">500ml</option>
+            <option value="1L">1 Liter</option>
+            <option value="2L">2 Liters</option>
+            <option value="5L">5 Liters</option>
+            <option value="10L">10 Liters</option>
+        </select>
+                <button onclick="addToCart('Royal Premium Wall Paint','paintColor','paintSize1')">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product">
+                <img src="images/image 2.png    " alt="Paint 2">
+                <h3>Royale Glitz Wall Reserve</h3>
+                <p>Perfect crème finish in Soft Sheen.</p>
+                <label for="paintColor">Choose Your Paint Color:</label>
+                <input type="color" id="paintColor" value="#a38fd6" onchange="changePaintColor(this.value)">
+                <div>
+                    <select id="paintSize2">
+                        <option value="250ml">250ml</option>
+                        <option value="500ml">500ml</option>
+                        <option value="1L">1 Liter</option>
+                        <option value="2L">2 Liters</option>
+                        <option value="5L">5 Liters</option>
+                        <option value="10L">10 Liters</option>
+                    </select>
+                    <button onclick="addToCart('Royale Glitz Wall Reserve','paintColor','paintSize1')">Add to Cart</button>
+                </div>
+            </div>
+            <div class="product">
+                <img src="images/image 4.png" alt="Paint 3">
+                <h3>Royale Shine Luxury Emulsion</h3>
+                <p>A unique finish that demonstrates diamond-like sheen .</p>
+                <label for="paintColor">Choose Your Paint Color:</label>
+                <input type="color" id="paintColor" value="#a38fd6" onchange="changePaintColor(this.value)">
+                <div>
+                    <select id="paintSize3">
+                        <option value="250ml">250ml</option>
+                        <option value="500ml">500ml</option>
+                        <option value="1L">1 Liter</option>
+                        <option value="2L">2 Liters</option>
+                        <option value="5L">5 Liters</option>
+                        <option value="10L">10 Liters</option>
+                    </select>   
+                    <button onclick="addToCart('Royale Shyne Luxury Emulsion','paintColor','paintSize1')">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- Footer Left Section -->
+            <div class="footer-left">
+                <h2>Sri Vignesh Traders</h2>
+                <p>Tholkappiar Square Street, Thanjavur, 613501</p>
+                <p>Email: info@vigneshtaders.com</p>
+                <p>Phone: +91 98765 43210</p>
+            </div>
+    
+            <!-- Footer Center Section -->
+            <div class="footer-center">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+    
+            <!-- Footer Right Section -->
+            <div class="footer-right">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Footer Bottom Section -->
+        <div class="footer-bottom">
+            <p>&copy; 2025 Sri Vignesh Traders. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    
+    
+    <script>
+        function showMessage() {
+            alert("Welcome to Paint World! Explore our products now.");
+        }
+    </script>
+
+<h2>  
+<marquee class="glowing-marquee" behavior="scroll" direction="left">
+    Sri Vignesh Traders - The Best Paint Solutions for You!
+</marquee>
+<marquee>ORDER NOW !! FREE HOME DELIVERY </marquee></h2>
+</body>
+</html>

@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bala Paints - Premium Paint Solutions</title>
+  <link rel="stylesheet" href="/style.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet"/>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+  <style>
+    /* Optional brand filter styling */
+    .brand-dropdown { display: none; position: absolute; background: white; padding: 10px; border: 1px solid #ccc; display: block;  }
+    .brand-dropdown.show { display: block; }
+    .brand-dropdown a.active { font-weight: bold; color: red; }
+    .color-select { padding: 6px; font-size: 16px; appearance: none; }
+    .brand-filter-section {
+      background-color: #f3f3f3;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .brand-filter-section select {
+      padding: 8px 12px;
+      font-size: 16px;
+    }
+    .brand-filter-section {
+      background-color: #f3f3f3;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .brand-filter-section select {
+      padding: 8px 12px;
+      font-size: 16px;
+    }
+
+    .color-select {
+      padding: 6px;
+      font-size: 16px;
+      appearance: none;
+    }
+
+    .color-option {
+      padding-left: 30px;
+      background-repeat: no-repeat;
+      background-size: 20px 20px;
+      background-position: 5px center;
+    }
+
+    .color-red { background-image: linear-gradient(to right, red, red); }
+    .color-blue { background-image: linear-gradient(to right, blue, blue); }
+    .color-green { background-image: linear-gradient(to right, green, green); }
+    .color-yellow { background-image: linear-gradient(to right, yellow, yellow); }
+    .color-white { background-image: linear-gradient(to right, white, white); }
+    .color-black { background-image: linear-gradient(to right, black, black); }
+    .color-grey { background-image: linear-gradient(to right, grey, grey); }
+  </style>
+</head>
+<body>
+    <section class="video-slider">
+        <div class="video-wrapper">
+          <video class="video-slide" autoplay muted playsinline></video>
+        </div>
+     <!-- Video Advertisement Section -->
+    
+     <section id="video-ads" style="position: relative;">
+        <video id="video1" class="video-slide" src="/video/Birla Opus Paints - Duniya Ko Rang Do _ Tamil _ 45 sec.mp4" autoplay      muted ></video>
+        <video id="video2" class="video-slide" src="/video/Nippon Paint - Yellow Podu Whistle Podu _ CSK.mp4" style="display: none;" muted ></video>
+        <video id="video3" class="video-slide" src="/video/Asian Paints Ultima Protek Is Lamination Paint _ Powered By Graphene _ Ft. Sathish – Tamil, 50sec.mp4" style="display: none;" muted ></video>
+    
+        <button id="muteBtn">🔇</button>
+        <button id="prevVideoBtn" class="video-nav-button"> < </button>
+        <button id="nextVideoBtn" class="video-nav-button"> > </button>
+    
+        <button class="scroll-btn" onclick="document.getElementById('starting').scrollIntoView({ behavior: 'smooth' })">
+          ↓ Scroll to Products
+        </button>
+      </section>
+  <header>
+    <section class="head" id="starting"></section>
+    <h1>Welcome To Sri Vignesh Traders Digital Storefront</h1>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#products">Products</a></li>
+        <li class="dropdown">
+            <a href="#brand" onclick="toggleBrandDropdown(event)">Brand <i class="fas fa-caret-down"></i></a>
+            <ul class="brand-dropdown">
+              <li><a href="#products" onclick="filterByBrand('All')">All Brands</a></li>
+              <li><a href="#products" onclick="filterByBrand('Asian Paints')">Asian Paints</a></li>
+              <li><a href="#products" onclick="filterByBrand('Berger Paints')">Berger Paints</a></li>
+              <li><a href="#products" onclick="filterByBrand('Nippon Paints')">Nippon Paints</a></li>
+              <li><a href="#products" onclick="filterByBrand('Brila opus')">Brila opus</a></li>
+            </ul>
+          </li>
+          
+          
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="/cart.html">cart</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="home" class="banner">
+    <h2>Your One-Stop Paint Solution</h2>
+    <p>High-quality paints for every surface.</p>
+    <button class="explore-button" onclick="showProducts()">Explore Now</button>
+  </section>
+
+  <section class="redirect-section">
+    <h2 class="section-heading">Choose Your Paint Type</h2>
+    <div class="redirect-container">
+      <div class="redirect-box">
+        <img src="images/interior1 (1).png" alt="Interior Paint">
+        <br>
+        <button class="redirect-button" onclick="location.href='interior.html'">Interior Paints</button>
+      </div>
+      <div class="redirect-box">
+        <img src="images/exterior 11.png" alt="Exterior Paint">
+        <br>
+        <button class="redirect-button" onclick="location.href='exterior.html'">Exterior Paints</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="products" class="product-section">
+    <h2 class="section-heading">Featured Products</h2>
+    <div class="product-list">
+      <div class="product" data-brand="Asian Paints">
+        <img src="images/image 1.png" alt="Royal Premium" onclick="openProductPage('Royal Premium Wall Paint', 'Ultra sheen paint that steals your spotlight. Perfect for interior walls with smooth finish. Water-resistant and available in rich colors.', 799, 'images/image 1.png')">
+        <h3>Royal Premium Wall Paint</h3>
+        <p class="short-desc">Smooth finish for modern homes.</p>
+        <label for="paintColor1">Choose Color:</label>
+        <select id="paintColor1" class="color-select">
+            <option value="Red">🔴 Red</option>
+            <option value="Blue">🔵 Blue</option>
+            <option value="Green">🟢 Green</option>
+            <option value="Yellow">🟡 Yellow</option>
+            <option value="White">⚪ White</option>
+            <option value="Black">⚫ Black</option>
+        </select>
+        <label for="paintSize1">Select Quantity:</label>
+        <select id="paintSize1" class="quantity-selection">
+            <option value="250ml">250ml</option>
+            <option value="500ml">500ml</option>
+            <option value="1L">1 Liter</option>
+            <option value="2L">2 Liters</option>
+            <option value="5L">5 Liters</option>
+            <option value="10L">10 Liters</option>
+        </select>
+        <button class="add-to-cart" onclick="addToCart('Royal Premium Wall Paint','paintColor1','paintSize1')">Add to Cart</button>
+      </div>
+
+      <div class="product" data-brand="Asian Paints">
+        <img src="images/image 2.png" alt="Royale Glitz" onclick="openProductPage('Royale Glitz Wall Reserve','Perfect crème finish in Soft Sheen',450,'images/image 2.png')">
+        <h3>Royale Glitz Wall Reserve</h3>
+        <p class="short-desc">Crème finish with soft sheen.</p>
+        <label for="paintColor2">Choose Color:</label>
+        <select id="paintColor2" class="color-select">
+            <option value="Red">🔴 Red</option>
+            <option value="Blue">🔵 Blue</option>
+            <option value="Green">🟢 Green</option>
+            <option value="Yellow">🟡 Yellow</option>
+            <option value="White">⚪ White</option>
+            <option value="Black">⚫ Black</option>
+        </select>
+        <label for="paintSize2">Select Quantity:</label>
+        <select id="paintSize2" class="quantity-selection">
+            <option value="250ml">250ml</option>
+            <option value="500ml">500ml</option>
+            <option value="1L">1 Liter</option>
+            <option value="2L">2 Liters</option>
+            <option value="5L">5 Liters</option>
+            <option value="10L">10 Liters</option>
+        </select>
+        <button class="add-to-cart" onclick="addToCart('Royale Glitz Wall Reserve','paintColor2','paintSize2')">Add to Cart</button>
+      </div>
+
+      <div class="product" data-brand="Brila opus">
+        <img src="images/birla-opus-one-timeless-clay.jpeg.png" alt="One Timeless" onclick="openProductPage('Royale Glitz Wall Reserve','One Timeless Clay consists of Lime and Natural clay, applied with a trowel in multiple layers, which is top-coated to provide the desired finish. It is an eco-friendly product with Low VOC, high Natural Content and VAM based',505,'images/birla-opus-one-timeless-clay.jpeg.png')">
+        <h3>One Timeless Clay</h3>
+        <p class="short-desc">Eco-friendly timeless clay blend.</p>
+        <label for="paintColor3">Choose Color:</label>
+        <select id="paintColor3" class="color-select">
+            <option value="Red">🔴 Red</option>
+            <option value="Blue">🔵 Blue</option>
+            <option value="Green">🟢 Green</option>
+            <option value="Yellow">🟡 Yellow</option>
+            <option value="White">⚪ White</option>
+            <option value="Black">⚫ Black</option>
+        </select>
+        <label for="paintSize3">Select Quantity:</label>
+        <select id="paintSize3" class="quantity-selection">
+            <option value="250ml">250ml</option>
+            <option value="500ml">500ml</option>
+            <option value="1L">1 Liter</option>
+            <option value="2L">2 Liters</option>
+            <option value="5L">5 Liters</option>
+            <option value="10L">10 Liters</option>
+        </select>
+        <button class="add-to-cart" onclick="addToCart('One Timeless Clay','paintColor3','paintSize3')">Add to Cart</button>
+      </div>
+
+      <div class="product" data-brand="Brila opus">
+        <img src="images/one timeless maramorino.jpeg" alt="One Timeless" onclick="openProductPage('one timeless maramorino','One Timeless Marmorino is a Lime-based coarse-grained decorative wall texture. This product is highly customizable; and can give multiple grainy, coarse and smooth finish which are easy to apply and easy to maintain. It is consisting of plaster mixed with marble dust, applied with a trowel in multiple layers, which are top-coated to provide desired finish',505,'images/one timeless maramorino.jpeg')">
+        <h3>one timeless maramorino</h3>
+        <p class="short-desc">Eco-friendly timeless clay blend.</p>
+        <label for="paintColor4">Choose Color:</label>
+        <select id="paintColor4" class="color-select">
+            <option value="Red">🔴 Red</option>
+            <option value="Blue">🔵 Blue</option>
+            <option value="Green">🟢 Green</option>
+            <option value="Yellow">🟡 Yellow</option>
+            <option value="White">⚪ White</option>
+            <option value="Black">⚫ Black</option>
+        </select>
+        <label for="paintSize4">Select Quantity:</label>
+        <select id="paintSize4" class="quantity-selection">
+            <option value="250ml">250ml</option>
+            <option value="500ml">500ml</option>
+            <option value="1L">1 Liter</option>
+            <option value="2L">2 Liters</option>
+            <option value="5L">5 Liters</option>
+            <option value="10L">10 Liters</option>
+        </select>
+        <button class="add-to-cart" onclick="addToCart('One Timeless Clay','paintColor4','paintSize4')">Add to Cart</button>
+      </div>
+
+      <div class="product" data-brand="Asian Paints">
+        <img src="images/interior-walls-royale-shyne-luxury-emulsion-asian-paints.png" alt="Royale Shine" onclick="openProductPage('oyale Shine Luxury Emulsion','A unique finish that demonstrates diamond-like sheen',450,'images/interior-walls-royale-shyne-luxury-emulsion-asian-paints.png')">
+        <h3>Royale Shine Luxury Emulsion</h3>
+        <p class="short-desc">Diamond-like shine, luxury feel.</p>
+        <label for="paintColor5">Choose Color:</label>
+        <select id="paintColor5" class="color-select">
+            <option value="Red">🔴 Red</option>
+            <option value="Blue">🔵 Blue</option>
+            <option value="Green">🟢 Green</option>
+            <option value="Yellow">🟡 Yellow</option>
+            <option value="White">⚪ White</option>
+            <option value="Black">⚫ Black</option>
+        </select>
+        <label for="paintSize5">Select Quantity:</label>
+        <select id="paintSize5" class="quantity-selection">
+            <option value="250ml">250ml</option>
+            <option value="500ml">500ml</option>
+            <option value="1L">1 Liter</option>
+            <option value="2L">2 Liters</option>
+            <option value="5L">5 Liters</option>
+            <option value="10L">10 Liters</option>
+        </select>
+        <button class="add-to-cart" onclick="addToCart('Royale Shine Luxury Emulsion','paintColor5','paintSize5')">Add to Cart</button>
+      </div>
+    </div>
+  </section>
+    
+        
+  </section>
+
+  <!-- Brand Section -->
+  <section id="brands" class="brand-filter-section">
+    <h2>Our Brands</h2>
+    <div class="brand-logos">
+      <div class="brand-card">
+        <img src="/images/asianpaing.jpeg" alt="Asian Paints">
+        <p>Asian Paints</p>
+      </div>
+      <div class="brand-card">
+        <img src="/images/Berger_Paints_logo.jpeg" alt="Berger Paints">
+        <p>Berger Paints</p>
+      </div>
+      <div class="brand-card">
+        <img src="/images/nippon.jpg" alt="Nippon Paints">
+        <p>Nippon Paints</p>
+      </div>
+      <div class="brand-card">
+        <img src="/images/brila opus.png" alt="Birla opus">
+        <p>Brila opus</p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-left">
+        <h2>Sri Vignesh Traders</h2>
+        <p>Tholkappiar Square Street, Thanjavur, 613501</p>
+        <p>Email: info@vigneshtaders.com</p>
+        <p>Phone: +91 98765 43210</p>
+      </div>
+      <div class="footer-center">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#brands">Brands</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-right">
+        <h3>Follow Us</h3>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Sri Vignesh Traders. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <h2>
+    <marquee class="glowing-marquee" behavior="scroll" direction="left">
+      Sri Vignesh Traders - The Best Paint Solutions for You!
+    </marquee>
+    <marquee>ORDER NOW !! FREE HOME DELIVERY</marquee>
+  </h2>
+
+  <script>
+     const videos = [
+      document.getElementById('video1'),
+      document.getElementById('video2'),
+      document.getElementById('video3')
+    ];
+    let current = 0;
+    let muted = true;
+
+    function showVideo(index) {
+      videos.forEach((video, i) => {
+        video.pause();
+        video.style.display = i === index ? 'block' : 'none';
+        video.currentTime = 0;
+        video.muted = muted;
+      });
+      videos[index].play();
+    }
+
+    function playNextVideo() {
+      current = (current + 1) % videos.length;
+      showVideo(current);
+    }
+
+    function playPreviousVideo() {
+      current = (current - 1 + videos.length) % videos.length;
+      showVideo(current);
+    }
+
+    videos.forEach((video, index) => {
+      video.addEventListener('ended', () => { if (index === current) playNextVideo(); });
+    });
+
+    document.getElementById('muteBtn').addEventListener('click', () => {
+      muted = !muted;
+      videos.forEach(v => v.muted = muted);
+      document.getElementById('muteBtn').textContent = muted ? '🔇' : '🔊';
+    });
+
+    document.getElementById('prevVideoBtn').addEventListener('click', playPreviousVideo);
+    document.getElementById('nextVideoBtn').addEventListener('click', playNextVideo);
+    // If you have a center next button uncomment the next line
+    // document.getElementById('centerNextBtn').addEventListener('click', playNextVideo);
+
+    
+
+    function openProductPage(name, description, price, imageUrl) {
+      const product = { name, description, price, imageUrl };
+      localStorage.setItem("selectedProduct", JSON.stringify(product));
+      window.location.href = "product.html";
+    }
+
+    function filterByBrand(brand) {
+      localStorage.setItem("selectedBrand", brand);
+      document.querySelectorAll('.brand-dropdown a').forEach(link => {
+        link.classList.remove('active');
+        if (link.textContent.trim() === brand) {
+          link.classList.add('active');
+        }
+      });
+
+      const products = document.querySelectorAll('.product');
+      products.forEach(product => {
+        const productBrand = product.getAttribute('data-brand');
+        product.style.display = (brand === 'All' || productBrand === brand) ? 'block' : 'none';
+      });
+       // ✅ Auto-hide dropdown after brand selection
+  const dropdown = document.querySelector('.brand-dropdown');
+  if (dropdown) dropdown.classList.remove('show');
+}
+    
+
+    function showProducts() {
+      document.getElementById("products").scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function addToCart(name, colorId, sizeId) {
+      const color = document.getElementById(colorId).value;
+      const size = document.getElementById(sizeId).value;
+      alert(`${name} added to cart.\nColor: ${color}\nSize: ${size}`);
+    }
+
+    function toggleBrandDropdown(event) {
+      event.preventDefault();
+      const dropdown = event.target.closest('li').querySelector('.brand-dropdown');
+      dropdown.classList.toggle('show');
+    }
+
+    window.onload = () => {
+      const savedBrand = localStorage.getItem("selectedBrand") || "All";
+      filterByBrand(savedBrand);
+    };
+  </script>
+  
+  <script src="/cart.js"></script>
+</body>
+</html>

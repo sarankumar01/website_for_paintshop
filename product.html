@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Product Detail</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    header, footer {
+      background: #1e293b;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+    .container {
+      padding: 2rem;
+      max-width: 800px;
+      margin: auto;
+    }
+    img {
+      max-width: 100%;
+      border-radius: 8px;
+    }
+    h1 {
+      margin-top: 20px;
+    }
+    .price {
+      color: green;
+      font-size: 22px;
+      margin: 10px 0;
+    }
+    select, button {
+      margin-top: 10px;
+      padding: 10px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Product Details</h1>
+  </header>
+
+  <div class="container">
+    <img id="productImage" src="" alt="">
+    <h1 id="productName"></h1>
+    <p class="price" id="productPrice"></p>
+    <p id="productDescription"></p>
+
+    <label for="colorSelect">Choose a Color:</label>
+    <select id="colorSelect">
+      <option>Red</option>
+      <option>Blue</option>
+      <option>Green</option>
+      <option>Yellow</option>
+      <option>White</option>
+      <option>Black</option>
+    </select>
+
+    <br/>
+
+    <label for="quantitySelect">Select Quantity:</label>
+    <select id="quantitySelect">
+      <option>250ml</option>
+      <option>500ml</option>
+      <option>1L</option>
+      <option>2L</option>
+      <option>5L</option>
+      <option>10L</option>
+    </select>
+
+    <br/>
+    <button onclick="addToCart()">Add to Cart</button>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Sri Vignesh Traders</p>
+  </footer>
+
+  <script>
+     if (!localStorage.getItem("selectedProduct")) {
+    localStorage.setItem("selectedProduct", JSON.stringify({
+      name: "Sunflower Oil",
+      price: 199,
+      description: "Pure and healthy sunflower oil.",
+      imageUrl: "https://via.placeholder.com/300"
+    }));
+  }
+
+  const product = JSON.parse(localStorage.getItem("selectedProduct"));
+
+  if (!product) {
+    alert("No product selected! Please go back and choose a product.");
+    console.error("selectedProduct not found in localStorage.");
+  } else {
+    document.getElementById("productName").textContent = product.name;
+    document.getElementById("productDescription").textContent = product.description;
+    document.getElementById("productPrice").textContent = "₹" + product.price;
+    document.getElementById("productImage").src = product.imageUrl;
+    document.getElementById("productImage").alt = product.name;
+  }
+
+  function addToCart() {
+    if (!product) {
+      alert("Cannot add to cart. No product selected.");
+      return;
+    }
+
+    const color = document.getElementById("colorSelect").value;
+    const quantity = document.getElementById("quantitySelect").value;
+
+    // Example cart item structure
+    const cartItem = {
+      ...product,
+      color,
+      quantity
+    };
+
+    // Retrieve existing cart or create empty one
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    // Add item to cart
+    cart.push(cartItem);
+
+    // Save updated cart
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    alert(`${product.name} added to cart!\nColor: ${color}\nQuantity: ${quantity}`);
+  }
+
+  </script>
+  
+</body>
+</html>

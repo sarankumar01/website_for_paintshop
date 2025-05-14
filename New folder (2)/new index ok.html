@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bala Paints - Premium Paint Solutions</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <h1>Welcome To Sri Vignesh Traders Digital Storefront</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#products">Products</a></li>
+              
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="banner">
+        <h2>Your One-Stop Paint Solution</h2>
+        <p>High-quality paints for every surface.</p>
+        <button class="explore-button" onclick="showProducts()">Explore Now</button>
+    </section>
+
+    <section id="products" class="product-section">
+        <h2 class="section-heading">Featured Products</h2>
+        <div class="product-list">
+            <!-- Product 1 -->
+            <div class="product">
+                <img src="images/image 1.png" alt="Royal Premium Wall Paint">
+                <h3>Royal Premium Wall Paint</h3>
+                <p>Ultra sheen paint that steals your spotlight.</p>
+
+                <p class="price">Price: ₹<span id="price1">200</span></p>
+                
+                <!-- Color Selection -->
+                <div class="color-selection">
+                    <label for="paintColor1">Choose Your Paint Color:</label>
+                    <input type="color" id="paintColor1" value="#a38fd6">
+                </div>
+
+                <!-- Quantity Selection -->
+                <div class="quantity-selection">
+                    <label for="paintSize1">Select Quantity:</label>
+                    <select id="paintSize1">
+                        <option value="250ml">250ml</option>
+                        <option value="500ml">500ml</option>
+                        <option value="1L">1 Liter</option>
+                        <option value="2L">2 Liters</option>
+                        <option value="5L">5 Liters</option>
+                        <option value="10L">10 Liters</option>
+                    </select>
+                </div>
+
+                <!-- Add to Cart Button -->
+                <div class="add-to-cart">
+                    <button onclick="addToCart('Royal Premium Wall Paint', document.getElementById('paintSize1').value, document.getElementById('paintColor1').value)">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product">
+                <img src="images/image 2.png" alt="Royale Glitz Wall Reserve">
+                <h3>Royale Glitz Wall Reserve</h3>
+                <p>Perfect crème finish in Soft Sheen.</p>
+                
+                <!-- Color Selection -->
+                <div class="color-selection">
+                    <label for="paintColor2">Choose Your Paint Color:</label>
+                    <input type="color" id="paintColor2" value="#a38fd6">
+                </div>
+
+                <!-- Quantity Selection -->
+                <div class="quantity-selection">
+                    <label for="paintSize2">Select Quantity:</label>
+                    <select id="paintSize2">
+                        <option value="250ml">250ml</option>
+                        <option value="500ml">500ml</option>
+                        <option value="1L">1 Liter</option>
+                        <option value="2L">2 Liters</option>
+                        <option value="5L">5 Liters</option>
+                        <option value="10L">10 Liters</option>
+                    </select>
+                </div>
+
+                <!-- Add to Cart Button -->
+                <div class="add-to-cart">
+                    <button onclick="addToCart('Royale Glitz Wall Reserve', document.getElementById('paintSize2').value, document.getElementById('paintColor2').value)">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product">
+                <img src="images/image 4.png" alt="Royale Shine Luxury Emulsion">
+                <h3>Royale Shine Luxury Emulsion</h3>
+                <p>A unique finish that demonstrates diamond-like sheen.</p>
+            
+                
+                <!-- Color Selection -->
+                <div class="color-selection">
+                    <label for="paintColor3">Choose Your Paint Color:</label>
+                    <input type="color" id="paintColor3" value="#a38fd6">
+                </div>
+
+                <!-- Quantity Selection -->
+                <div class="quantity-selection">
+                    <label for="paintSize3">Select Quantity:</label>
+                    <select id="paintSize3">
+                        <option value="250ml">250ml</option>
+                        <option value="500ml">500ml</option>
+                        <option value="1L">1 Liter</option>
+                        <option value="2L">2 Liters</option>
+                        <option value="5L">5 Liters</option>
+                        <option value="10L">10 Liters</option>
+                    </select>
+                </div>
+
+                <!-- Add to Cart Button -->
+                <div class="add-to-cart">
+                    <button onclick="addToCart('Royale Shine Luxury Emulsion', document.getElementById('paintSize3').value, document.getElementById('paintColor3').value)">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-left">
+                <h2>Sri Vignesh Traders</h2>
+                <p>Tholkappiar Square Street, Thanjavur, 613501</p>
+                <p>Email: info@vigneshtaders.com</p>
+                <p>Phone: +91 98765 43210</p>
+            </div>
+            <div class="footer-center">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#products">Products</a></li>
+                    
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-right">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Sri Vignesh Traders. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Marquee Replacement -->
+    <div class="glowing-marquee">
+        Sri Vignesh Traders - The Best Paint Solutions for You!
+    </div>
+
+    <script>
+        // Base price per liter
+        const basePrice = 200;
+    
+        function updatePrice(productNumber) {
+            let quantity = document.getElementById(`paintSize${productNumber}`).value;
+            let newPrice = basePrice * quantity;
+            document.getElementById(`price${productNumber}`).innerText = newPrice;
+        }
+    </script>
+
+    
+</body>
+</html>

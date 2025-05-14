@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interior Paints - Bala Paints</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Interior Paints Collection</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="exterior.html">Exterior Paints</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section class="product-section">
+        <h2>Our Best Interior Paints</h2>
+        <div class="product-list">
+            <div class="product">
+                <img src="images/image 1.png" alt="Interior Paint 1">
+                <h3>Luxury Matte Finish</h3>
+                <p>Perfect for living rooms and bedrooms.</p>
+                <label for="paintColor">Choose Your Paint Color:</label>
+                 <input type="color" id="paintColor" value="#a38fd6" onchange="changePaintColor(this.value)">
+                 <div>
+                    <button onclick="addToCart('Luxury Matte Finisht',)">Add to Cart</button>
+                   </div>
+            </div>
+            <div class="product">
+                <img src="images/image 2.png" alt="Interior Paint 2">
+                <h3>Royal Shine Wall Paint</h3>
+                <p>Ultra-sheen finish for a premium look.</p>
+                <label for="paintColor">Choose Your Paint Color:</label>
+                 <input type="color" id="paintColor" value="#a38fd6" onchange="changePaintColor(this.value)">
+            <div>
+                 <button onclick="addToCart('Luxury Matte Finisht',)">Add to Cart</button>
+            </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <p>&copy; 2025 Bala Paint World. All rights reserved.</p>
+        <a href="index.html">Back to Home</a>
+    </footer>
+</body>
+</html>
